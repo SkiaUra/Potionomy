@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d3832b427503a429621021e2707586, type: 3}
+  m_Name: GobelinGang
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 0}
+  StorySteps:
+  - NeededRecipe: {fileID: 11400000, guid: d0677bec008ffd74ca8c357101c4a2a0, type: 2}
+    SentencesList:
+    - Phrase 0
+    - Phrase 1
+    - Phrase 2
+    - Phrase 3. Fin.
+  - NeededRecipe: {fileID: 11400000, guid: 61ec8dc81dfb73f479537ea370054038, type: 2}
+    SentencesList:
+    - Phrase 0
+    - Phrase 1

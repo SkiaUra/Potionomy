@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661d26b1b60f2ba4ba94edeacadaacd9, type: 3}
+  m_Name: GameProperties
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  RecipesList:
+  - {fileID: 11400000, guid: d0677bec008ffd74ca8c357101c4a2a0, type: 2}
+  - {fileID: 11400000, guid: 61ec8dc81dfb73f479537ea370054038, type: 2}
+  - {fileID: 11400000, guid: 4a7e2c067ddf4ce4da409725687ed5d3, type: 2}
+  AllRequests:
+  - IsDone: 0
+    PotionRequest: {fileID: 11400000, guid: 2483b398d9eaec848a99da91e20bd88b, type: 2}
+  - IsDone: 0
+    PotionRequest: {fileID: 11400000, guid: 60c0ba9ee8738eb4b87247edff1a0f4f, type: 2}
