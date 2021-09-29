@@ -8,10 +8,11 @@ using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour {
 
+    private static CameraController _instance;
     public Vector2 StartTouchPos;
     public Vector2 CurrentTouchPos;
     public Vector2 EndTouchPos;
-    public bool StopTouch = false;
+    public bool LockCamera = false;
     public bool IsCameraRotating = false;
     public float percent;
 
@@ -19,13 +20,8 @@ public class CameraController : MonoBehaviour {
     public float RotationSpeed;
     public Ease RotationEasing;
 
-
-    public void OnMouseDown() {
-        StartTouchPos = Input.mousePosition;
-    }
-
-    public void OnMouseDrag() {
-        CurrentTouchPos = Input.mousePosition;
+    void Awake() {
+        _instance = this;
     }
 
     void Update() {
@@ -33,8 +29,8 @@ public class CameraController : MonoBehaviour {
     }
 
     public void Swipe() {
+        if (LockCamera) return;
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("down");
             StartTouchPos = Vector2.zero;
             StartTouchPos = Input.mousePosition;
         }
@@ -42,7 +38,6 @@ public class CameraController : MonoBehaviour {
         CurrentTouchPos = Input.mousePosition;
 
         if (Input.GetMouseButtonUp(0)) {
-            Debug.Log("Up");
             EndTouchPos = CurrentTouchPos;
             float distX = EndTouchPos.x - StartTouchPos.x;
 
@@ -68,6 +63,16 @@ public class CameraController : MonoBehaviour {
             await UniTask.WaitUntil(() => TweenCam.IsPlaying() == false);
             IsCameraRotating = false;
         }
+    }
 
+    public static void ToggleCamLock() {
+        _instance.LockCamera = !_instance.LockCamera;
+    }
+
+    public static void CancelSwipe() {
+        _instance.percent = 0f;
+        _instance.StartTouchPos = Vector2.zero;
+        _instance.CurrentTouchPos = Vector2.zero;
+        _instance.EndTouchPos = Vector2.zero;
     }
 }

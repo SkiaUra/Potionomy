@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using System.Linq;
+
+public enum ScreenTypes {
+    CLIENTSCREEN,
+    CRAFTSCREEN,
+    BOOKSCREEN,
+    DOORSCREEN
+}
 
 public class CanvasManager : MonoBehaviour {
 
@@ -12,6 +20,10 @@ public class CanvasManager : MonoBehaviour {
     public RectTransform ScreensMover;
     public RectTransform ClientScreen;
     public RectTransform CraftScreen;
+
+    public List<ScreenController> ScreensList = new List<ScreenController>();
+
+    public ScreenTypes DisplayedScreen;
 
     public Button LeftScreenButton;
     public Button RightScreenButton;
@@ -30,10 +42,13 @@ public class CanvasManager : MonoBehaviour {
         .AddListener(delegate () {
             MoveScreens(-1);
         });
+
     }
 
-    void Start() {
-        SetupScreens();
+
+    public void ChangeScreen(ScreenTypes _Screen) {
+        ScreensList.FirstOrDefault(screen => screen.ScreenType == DisplayedScreen).HideScreen();
+        ScreensList.FirstOrDefault(screen => screen.ScreenType == _Screen).DisplayScreen();
     }
 
     public void SetupScreens() {

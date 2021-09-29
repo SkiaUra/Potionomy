@@ -10,6 +10,9 @@ public class GameProperties : SerializedScriptableObject {
     public List<Recipe> RecipesList = new List<Recipe>();
 
     [TableList] public List<ActiveRequest> AllRequests = new List<ActiveRequest>();
+
+    [Title("Parameters")]
+    public float MinDistancetoReleaseOnCauldron = 10f;
     /*
         [Title("Entity To Spawn")]
         public CreatureAsset[] creatureAssets;
